@@ -39,11 +39,10 @@
       ],
       "category": "Network",
       "executableName": "hina-raws",
-      "desktop": {
-        "entry": {
-          "Exec": "env ELECTRON_ENABLE_WAYLAND=1 %U"
-        }
-      }
+      "executableArgs": [
+        "--enable-features=UseOzonePlatform",
+        "--ozone-platform=wayland"
+      ]
     }
   }
 }
