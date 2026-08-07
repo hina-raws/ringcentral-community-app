@@ -39,7 +39,9 @@
       ],
       "category": "Network",
       "desktop": {
-        "Exec": "env ELECTRON_ENABLE_WAYLAND=1 %U"
+        "entry": {
+          "Exec": "env ELECTRON_ENABLE_WAYLAND=1 %U"
+        }
       }
     }
   }
