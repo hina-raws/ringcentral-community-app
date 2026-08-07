@@ -13,6 +13,12 @@ const {
 } = require('electron');
 const ProgressBar = require('electron-progressbar');
 const isMac = process.platform === 'darwin'
+const isLinux = process.platform === 'linux'
+
+if (isLinux && (process.env.XDG_SESSION_TYPE === 'wayland' || process.env.WAYLAND_DISPLAY)) {
+  app.commandLine.appendSwitch('enable-features', 'UseOzonePlatform')
+  app.commandLine.appendSwitch('ozone-platform', 'wayland')
+}
 
 const singleInstanceLock = app.requestSingleInstanceLock();
 const webAppUrl = 'https://app.ringcentral.com';
