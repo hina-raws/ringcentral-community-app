@@ -1,14 +1,14 @@
 {
-  "name": "ringcentral-community-app",
+  "name": "hina-raws",
   "description": "A RingCentral community app",
-  "version": "0.0.8",
+  "version": "0.0.14-hina-raws",
   "main": "main.js",
-  "homepage": "https://github.com/ringcentral/ringcentral-community-app",
+  "homepage": "https://github.com/hina-raws/ringcentral-community-app",
   "license": "MIT",
   "author": {
-    "name": "Embbnux Ji",
-    "email": "embbnux@embbnux.com",
-    "url": "https://github.com/embbnux"
+    "name": "hina-raws",
+    "email": "service.relay.lab@gmail.com",
+    "url": "https://github.com/hina-raws"
   },
   "scripts": {
     "start": "electron .",
