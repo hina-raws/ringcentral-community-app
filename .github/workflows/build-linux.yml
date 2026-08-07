@@ -1,0 +1,37 @@
+name: Build Linux packages
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rpm dpkg-dev fakeroot libfuse2
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build Linux packages (deb, rpm, AppImage)
+        run: npm run package-linux
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-packages
+          path: dist/**
